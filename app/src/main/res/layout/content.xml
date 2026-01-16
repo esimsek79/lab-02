@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- this file is a TEMPLATE for how each individual city appears in the ListView -->
+<!-- similar to a CSS class or a function that formats each list item -->
+<!-- every city in the list uses this same template for consistent styling -->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:text="sample_text"
+    android:textSize="40sp">
+    <!-- android:id - gives this a reference name (not really needed here but standard practice)
+         android:layout_width="match_parent" - stretch to fill the width of the ListView
+         android:layout_height="match_parent" - wrap to fit the text height
+         android:padding="20dp" - add 20dp of space around the text
+         android:text="sample_text" - placeholder text (will be replaced by actual city names)
+         android:textSize="40sp" - font size of 40  -->
+</TextView>
+
+    <!-- when the ArrayAdapter displays "Edmonton" it creates a TextView using this template,
+         replaces "sample_text" with "Edmonton" and adds it to the ListView -->

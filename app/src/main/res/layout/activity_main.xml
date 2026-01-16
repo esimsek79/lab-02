@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- this file defines the layout/structure of the main screen -->
+<!-- similar to HTML ? - describes what UI elements exist and where they go -->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- ADD CITY Button (top left) -->
+    <Button
+        android:id="@+id/add_city_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="ADD CITY"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/delete_city_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
+    <!-- constraints position this button:
+         - end at the start of delete button (they're side by side)
+         - start at the parent's start (left edge)
+         - top at parent's top
+         - weight 1 means it takes equal space with delete button -->
+
+    <!-- DELETE CITY Button (top right) -->
+    <Button
+        android:id="@+id/delete_city_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="DELETE CITY"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/add_city_button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_weight="1" />
+    <!-- this button is positioned next to ADD CITY button -->
+
+    <!-- ListView - scrollable list that displays all cities -->
+    <ListView
+        android:id="@+id/city_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/add_city_button"
+        app:layout_constraintBottom_toTopOf="@+id/city_input"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </ListView>
+    <!-- 0dp with constraints means "fill available space"
+         stretches between the buttons and the input field -->
+
+    <!-- EditText - text input field for typing city names (initially hidden) -->
+    <EditText
+        android:id="@+id/city_input"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="City Name"
+        android:padding="16dp"
+        android:background="#EEEEEE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/confirm_button" />
+    <!-- positioned at the bottom, next to CONFIRM button -->
+
+    <!-- CONFIRM Button - adds the typed city to the list (initially hidden) -->
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONFIRM"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/city_input" />
+    <!-- positioned at bottom right, next to the input field -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
